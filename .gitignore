@@ -1,0 +1,7 @@
+# .gitignore
+*.pyc
+__pycache__
+*.pyo
+*.pyc
+*.pyd
+db.sqlite3
