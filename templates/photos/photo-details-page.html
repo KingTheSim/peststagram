@@ -1,10 +1,12 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
 <!-- Starts Head Section -->
 <head>
-    <link rel="stylesheet" href="/static_files/css/styles.css">
-    <link rel="icon" type="image/x-icon" href="/static_files/images/free-30-instagram-stories-icons23_122570.png">
-    <title>Petstagram</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <link rel="icon" type="image/x-icon" href="{% static 'images/free-30-instagram-stories-icons23_122570.png' %}">
+    <title>Peststagram</title>
 </head>
 <!-- End Head Section -->
 
@@ -17,13 +19,13 @@
         <div class="container">
             <div class="logo">
                 <!-- Link to Home Page -->
-                <a href="#">
-                    <img width="50px" src="/static_files/images/free-30-instagram-stories-icons23_122570.png" alt="img1">
+                <a href="{% url 'home' %}">
+                    <img width="50px" src="{% static 'images/free-30-instagram-stories-icons23_122570.png' %}" alt="img1">
                 </a>
 
                 <!-- Link to Home Page -->
-                <a class="home" href="#">
-                    <i>Petstagram</i>
+                <a class="home" href="{% url 'home' %}">
+                    <i>Peststagram</i>
                 </a>
             </div>
 
@@ -31,9 +33,9 @@
                 <ul class="nav-group">
                     <li class="nav-item">
 
-                        <!-- Link to Add Pet Page -->
+                        <!-- Link to Add Pest Page -->
                         <a href="#">
-                            <i>Add Pet</i>
+                            <i>Add Pest</i>
                         </a>
                     </li>
                     <li class="nav-item">
@@ -68,7 +70,7 @@
     <div class="container">
         <div class="col-9">
 
-            <!-- Start Pet Photo Post Section -->
+            <!-- Start Pest Photo Post Section -->
             <div class="card">
                 <div class="top">
 
@@ -80,7 +82,7 @@
                             <div class="profilepic">
                                 <div class="profile_img">
                                     <div class="image">
-                                        <img src="/static_files/images/person.png" alt="img8">
+                                        <img src="{% static 'images/person.png' %}" alt="img8">
                                     </div>
                                 </div>
                             </div>
@@ -102,15 +104,15 @@
                             <!-- IF the viewer is the creator of the photo -->
                             <div class="edit-delete-btns">
 
-                                <!-- Link to Edit Pet Photo Page -->
+                                <!-- Link to Edit Pest Photo Page -->
                                 <a href="#">
-                                    <img class="edit-img" src="/static_files/images/edit-pen-icon-6.jpg"
+                                    <img class="edit-img" src="{% static 'images/edit-pen-icon-6.jpg' %}"
                                          alt="edit button">
                                 </a>
 
-                                <!-- Link to Delete Pet Photo Page -->
+                                <!-- Link to Delete Pest Photo Page -->
                                 <a href="#">
-                                    <img class="bin-img" src="/static_files/images/icon-remove-22.jpg" alt="bin button">
+                                    <img class="bin-img" src="{% static 'images/icon-remove-22.jpg' %}" alt="bin button">
                                 </a>
                             </div>
                             <!-- End IF the viewer is the creator of the photo -->
@@ -121,12 +123,12 @@
 
                 </div>
 
-                <!-- Start Pet Photo -->
+                <!-- Start Pest Photo -->
                 <div class="imgBx" id="place the id of the photo here">
-                    <!-- Pet Photo -->
-                    <img src="/static_files/images/axolotl.jpeg" alt="post" class="cover">
+                    <!-- Pest Photo -->
+                    <img src="{% static 'images/axolotl.jpeg' %}" alt="post" class="cover">
                 </div>
-                <!-- End Pet Photo -->
+                <!-- End Pest Photo -->
 
                 <div class="bottom">
 
@@ -160,23 +162,23 @@
                     <!-- Number of Likes for the Photo -->
                     <p class="likes">203 likes</p>
 
-                    <!-- Start Tagged Pets Section-->
-                    <!-- Link to First Tagged Pet Details Page -->
+                    <!-- Start Tagged Pests Section-->
+                    <!-- Link to First Tagged Pest Details Page -->
                     <a href="#">
                         <p class="message">
                             <b>Sasho</b>
                         </p>
                     </a>
-                    <!-- Link to Second Tagged Pet Details Page -->
+                    <!-- Link to Second Tagged Pest Details Page -->
                     <a href="#">
                         <p class="message">
                             <b>Some other fish</b>
                         </p>
                     </a>
-                    <!-- End Tagged Pets Section-->
+                    <!-- End Tagged Pests Section-->
 
                     <!-- Photo description -->
-                    <p class="pet-details">This is my pet</p>
+                    <p class="pest-details">This is my pest</p>
 
                     <!-- Date of Publication or edit of the Photo -->
                     <h5 class="postTime">19/09/2022</h5>
@@ -190,7 +192,7 @@
                                         <div class="profile_img">
                                             <div class="image">
                                                 <!-- User Profile Image -->
-                                                <img src="/static_files/images/person.png" alt="img8">
+                                                <img src="{% static 'images/person.png' %}" alt="img8">
                                             </div>
                                         </div>
                                     </div>
@@ -226,7 +228,7 @@
                 <!-- End Add Comments Section -->
 
             </div>
-            <!-- End Pet Photo Post Section -->
+            <!-- End Pest Photo Post Section -->
 
         </div>
     </div>

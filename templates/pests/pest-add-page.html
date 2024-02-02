@@ -1,10 +1,12 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
 <!-- Starts Head Section -->
 <head>
-    <link rel="stylesheet" href="/static_files/css/styles.css">
-    <link rel="icon" type="image/x-icon" href="/static_files/images/free-30-instagram-stories-icons23_122570.png">
-    <title>Petstagram</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <link rel="icon" type="image/x-icon" href="{% static 'images/free-30-instagram-stories-icons23_122570.png' %}">
+    <title>Peststagram</title>
 </head>
 <!-- End Head Section -->
 
@@ -17,22 +19,22 @@
         <div class="container">
             <div class="logo">
                 <!-- Link to Home Page -->
-                <a href="#">
-                    <img width="50px" src="/static_files/images/free-30-instagram-stories-icons23_122570.png" alt="img1">
+                <a href="{% url 'home' %}">
+                    <img width="50px" src="{% static 'images/free-30-instagram-stories-icons23_122570.png' %}" alt="img1">
                 </a>
 
                 <!-- Link to Home Page -->
-                <a class="home" href="#">
-                    <i>Petstagram</i>
+                <a class="home" href="{% url 'home' %}">
+                    <i>Peststagram</i>
                 </a>
             </div>
 
             <div class="nav-links">
                 <ul class="nav-group">
                     <li class="nav-item">
-                        <!-- Link to Add Pet Page -->
+                        <!-- Link to Add Pest Page -->
                         <a href="#">
-                            <i>Add Pet</i>
+                            <i>Add Pest</i>
                         </a>
                     </li>
 
@@ -65,31 +67,31 @@
 <!-- Starts Main Section -->
 <main>
 
-    <!-- Start Add Pet Section-->
+    <!-- Start Add Pest Section-->
     <div class="edit-delete edit-photo">
-        <h2>Add pet</h2>
+        <h2>Add pest</h2>
 
-        <!-- Start Add Pet Form -->
+        <!-- Start Add Pest Form -->
         <form action="#">
             <p>
-                <label for="pet-name">Pet name: </label>
-                <input type="text" placeholder="Pet name">
+                <label for="pest-name">Pest name: </label>
+                <input type="text" placeholder="Pest name">
             </p>
             <p>
-                <label for="pet-date">Date of birth: </label>
+                <label for="pest-date">Date of birth: </label>
                 <input type="date">
             </p>
             <p>
-                <label for="pet-image">Link to image: </label>
+                <label for="pest-image">Link to image: </label>
                 <input type="text" placeholder="Link to image">
             </p>
-            <!-- Add Pet Button -->
-            <button class="add-btn" type="submit">Add Pet</button>
+            <!-- Add Pest Button -->
+            <button class="add-btn" type="submit">Add Pest</button>
         </form>
-        <!-- End Add Pet Form -->
+        <!-- End Add Pest Form -->
 
     </div>
-    <!-- End Add Pet Section -->
+    <!-- End Add Pest Section -->
 
 </main>
 <!-- End Main Section -->

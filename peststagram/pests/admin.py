@@ -1,3 +1,7 @@
 from django.contrib import admin
+from peststagram.pests.models import Pest
 
-# Register your models here.
+
+@admin.register(Pest)
+class PestAdmin(admin.ModelAdmin):
+    list_display = ('name', 'slug')

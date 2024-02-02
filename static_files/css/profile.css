@@ -138,21 +138,21 @@
     object-fit: cover;
 }
 
-.head-pet {
+.head-pest {
     display: block;
     text-align: center;
 }
 
-.head-pet p {
+.head-pest p {
     margin-left: 13px;
 }
 
-.pet-photos {
+.pest-photos {
     border-top: 1px solid #ddd;
     width: 850px;
 }
 
-.pet-photos img {
+.pest-photos img {
     margin: 10px;
     width: 400px;
     height: 400px;
@@ -161,7 +161,7 @@
     object-fit: cover;
 }
 
-.pet-photos img:hover {
+.pest-photos img:hover {
     box-shadow: none;
 }
 
