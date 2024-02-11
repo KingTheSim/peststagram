@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Edit Pest{% endblock %}
+{% block content %}
+    <div class="edit-delete edit-photo">
+        <h2>Edit Pest</h2>
+        <!-- Start Edit Pest From -->
+        <form action="">
+            <p>
+                <label for="pest-name">Pest name: </label>
+                <input type="text" placeholder="Name" value="Sasho">
+            </p>
+            <p>
+                <label for="pest-date">Date of birth: </label>
+                <input type="date">
+            </p>
+            <p>
+                <label for="pest-image">Link to image: </label>
+                <input type="text" placeholder="Link to image"
+                       value="https://i.natgeofe.com/n/de94c416-6d23-45f5-9708-e8d56289268e/naturepl_01132178.jpg?w=636&h=631"
+                       alt="pest image">
+            </p>
+            <!-- Edit Pest Button -->
+            <button class="edit-btn" type="submit">Edit</button>
+        </form>
+        <!-- End Edit Pest Form -->
+
+    </div>
+{% endblock %}

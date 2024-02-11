@@ -1,0 +1,86 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <link rel="icon" type="image/x-icon" href="{% static 'images/free-30-instagram-stories-icons23_122570.png' %}">
+    <title>{% block title %}{% endblock %}</title>
+</head>
+<body>
+
+<header>
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo">
+                <!-- Link to Home Page -->
+                <a href="{% url 'home' %}">
+                    <img width="50px" src="{% static 'images/free-30-instagram-stories-icons23_122570.png' %}" alt="img1">
+                </a>
+
+                <!-- Link to Home Page -->
+                <a class="home" href="{% url 'home' %}">
+                    <i>Peststagram</i>
+                </a>
+            </div>
+
+            <div class="nav-links">
+                <ul class="nav-group">
+                    <li class="nav-item">
+
+                        <!-- Link to Add Pest Page -->
+                        <a href="{% url 'add_pest' %}">
+                            <i>Add Pest</i>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+
+                        <!-- Link to Add Photo Page -->
+                        <a href="{% url 'add_photo' %}">
+                            <i>Add Photo</i>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+
+                        <!-- Link to Login Page -->
+                        <a href="{% url 'sign_in' %}">
+                            <i>Login</i>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+
+                        <!-- Link to Register Page -->
+                        <a href="{% url 'sign_up' %}">
+                            <i>Register</i>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+
+                        <!-- Link to Profile Page -->
+                        <a href="#">
+                            <i>Profile</i>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+
+                        <!-- Log out -->
+                        <a href="#">
+                            <i>Log out</i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>
+<main>
+{% block content %}
+{% endblock %}
+</main>
+    <div class="footer">
+		<span class="footer-section">
+			© 2024 SOFTUNI WORKSHOP FOR PYTHON WEB MODULE
+		</span>
+</div>
+
+</body>
+</html>

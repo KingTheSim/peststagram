@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Add Pest{% endblock %}
+{% block content %}
+    <div class="edit-delete edit-photo">
+        <h2>Add pest</h2>
+
+        <!-- Start Add Pest Form -->
+        <form action="#">
+            <p>
+                <label for="pest-name">Pest name: </label>
+                <input type="text" placeholder="Pest name">
+            </p>
+            <p>
+                <label for="pest-date">Date of birth: </label>
+                <input type="date">
+            </p>
+            <p>
+                <label for="pest-image">Link to image: </label>
+                <input type="text" placeholder="Link to image">
+            </p>
+            <!-- Add Pest Button -->
+            <button class="add-btn" type="submit">Add Pest</button>
+        </form>
+        <!-- End Add Pest Form -->
+
+    </div>
+{% endblock %}
