@@ -1,0 +1,16 @@
+<div class="button">
+    <div class="actionBtns">
+        <div class="left">
+            <span class="heat">
+                <a href="{% url 'like' photo.id %}">
+                    {% if photo.like_set.all %}
+                        <i class="fa-solid fa-heart" style="color: #ed4040;"></i>
+                    {% else %}
+                        <i class="fa-regular fa-heart"></i>
+                    {% endif %}
+                <p class="likes">{{ photo.like_set.count }} likes</p>
+                </a>
+            </span>
+        </div>
+    </div>
+</div>

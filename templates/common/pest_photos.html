@@ -6,6 +6,10 @@
             <span>{{ photo.location }}</span>
         {% endif %}
         
+        <div class="imgBx" id="{{ photo.id }}">
+            <img src="{% static 'images/axolotl.jpeg' %}" alt="post" class="cover">
+        </div>
+        
         {% for pest in photo.tagged_pests.all %}
             <a href="{% url 'details_pest' 'username' pest.slug %}">
                 <p class="message">
@@ -17,6 +21,7 @@
         <a href="{% url 'details_photo' photo.pk %}">
         <h4 class="details">See details</h4>
         </a>
+        {% include "common/photo_like.html" %}
     {% endfor %}
                 <div class="top">
                     <div class="userDetails">
