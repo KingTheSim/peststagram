@@ -1,6 +1,7 @@
 from django.core.exceptions import ObjectDoesNotExist
 from django.shortcuts import render, redirect
 from django.http import HttpRequest, HttpResponse
+from peststagram.common.views import CommentForm
 from peststagram.photos.forms import PhotoCreateForm, PhotoEditForm
 from peststagram.photos.models import Photo
 
@@ -23,11 +24,13 @@ def details_photo(request: HttpRequest, pk: int) -> HttpResponse:
         photo = Photo.objects.get(pk=pk)
         likes = photo.like_set.all()
         comments = photo.comment_set.all()
+        comment_form = CommentForm()
 
         context = {
             "photo": photo,
             "likes": likes,
             "comments": comments,
+            "comment_form": comment_form,
         }
         return render(request, "photos/photo_details_page.html", context)
 

@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from django.http import HttpRequest, HttpResponse
 from django.core.exceptions import ObjectDoesNotExist
+from peststagram.common.forms import CommentForm
 from peststagram.pests.models import Pest
 from peststagram.pests.forms import PestAddForm, PestEditForm, PestDeleteForm
 
@@ -21,9 +22,11 @@ def details_pest(request: HttpRequest, username: str, pest_slug: str) -> HttpRes
     try:
         pest = Pest.objects.get(slug=pest_slug)
         all_photos = pest.tagged_pests.all()
+        comment_form = CommentForm()
         context = {
             "pest": pest,
             "all_photos": all_photos,
+            "comment_form": comment_form,
         }
         return render(request, "pests/pest_details_page.html", context=context)
 
