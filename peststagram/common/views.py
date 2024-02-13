@@ -1,6 +1,7 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, resolve_url
 from django.http import HttpRequest, HttpResponse
 from django.core.exceptions import ObjectDoesNotExist
+from pyperclip import copy
 from peststagram.common.models import Like
 from peststagram.photos.models import Photo
 
@@ -29,3 +30,8 @@ def like_functionality(request: HttpRequest, photo_id: int) -> HttpResponse:
 
     except ObjectDoesNotExist:
         return redirect(request.META["HTTP_REFERER"])
+
+
+def copy_link_to_clipboard(request: HttpRequest, photo_id: int) -> HttpResponse:
+    copy(request.META["HTTP_HOST"] + resolve_url("details_photo", photo_id))
+    return redirect(request.META["HTTP_REFERER"] + f"#{photo_id}")

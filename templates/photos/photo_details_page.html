@@ -35,19 +35,21 @@
                             <br>
 
                             <!-- IF the photo has location -->
-                            <span>Bansko, Bulgaria</span>
+                            {% if photo.location %}
+                            <span>{{ photo.location }}</span>
+                            {% endif %}
 
                             <!-- IF the viewer is the creator of the photo -->
                             <div class="edit-delete-btns">
 
                                 <!-- Link to Edit Pest Photo Page -->
-                                <a href="#">
+                                <a href="{% url 'edit_photo' photo.pk %}">
                                     <img class="edit-img" src="{% static 'images/edit-pen-icon-6.jpg' %}"
                                          alt="edit button">
                                 </a>
 
                                 <!-- Link to Delete Pest Photo Page -->
-                                <a href="#">
+                                <a href="{% url 'delete_photo' photo.pk %}">
                                     <img class="bin-img" src="{% static 'images/icon-remove-22.jpg' %}" alt="bin button">
                                 </a>
                             </div>
@@ -62,88 +64,59 @@
                 <!-- Start Pest Photo -->
                 <div class="imgBx" id="place the id of the photo here">
                     <!-- Pest Photo -->
-                    <img src="{% static 'images/axolotl.jpeg' %}" alt="post" class="cover">
+                    <img src="{{ photo.picture.url }}" alt="post" class="cover">
                 </div>
                 <!-- End Pest Photo -->
 
                 <div class="bottom">
 
                     <!-- Start Like and Share Buttons Section -->
-                    <div class="actionBtns">
-                        <div class="left">
-
-                            <!-- Start Like Button -->
-                            <span class="heart">
-
-                                    <!-- Link to Like Path -->
-                                    <a href="#">
-                                        <!-- if user has liked the photo -->
-                                        <!-- <i class="fa-solid fa-heart" style="color: #ed4040;"></i> -->
-                                        <!-- else -->
-                                        <i class="fa-regular fa-heart"></i>
-                                    </a>
-                            </span>
-                            <!-- End Like Button -->
-
-                            <!-- Start Share  Button -->
-
-                            <!-- Link to Share Path -->
-                            <a href="#">
-                                <i class="fa-solid fa-share"></i>
-                            </a>
-                        </div>
-                    </div>
+                    {% include 'common/photo_like.html' %}
+                    <a href="{% url 'share' photo.id %}">
+                        <i class="fa-solid fa_share"></i>
+                    </a>
                     <!-- End Like and Share Buttons Section -->
-
-                    <!-- Number of Likes for the Photo -->
-                    <p class="likes">203 likes</p>
 
                     <!-- Start Tagged Pests Section-->
                     <!-- Link to First Tagged Pest Details Page -->
-                    <a href="#">
-                        <p class="message">
-                            <b>Sasho</b>
-                        </p>
-                    </a>
-                    <!-- Link to Second Tagged Pest Details Page -->
-                    <a href="#">
-                        <p class="message">
-                            <b>Some other fish</b>
-                        </p>
-                    </a>
+                    {% for pest in photo.tagged_pests.all %}
+                        <a href="{% url 'details_pest' pest.slug %}">
+                            <p class="message">
+                                <b>{{ pest.name }}</b>
+                            </p>
+                        </a>
+                    {% endfor %}
                     <!-- End Tagged Pests Section-->
 
                     <!-- Photo description -->
                     <p class="pest-details">This is my pest</p>
 
                     <!-- Date of Publication or edit of the Photo -->
-                    <h5 class="postTime">19/09/2022</h5>
+                    <h5 class="postTime">{{ photo.date_of_publication }}</h5>
 
                     <!-- Start Comments Section -->
-                    <div class="comments">
-                        <div class="top">
-                            <div class="userDetails">
-                                <div class="comment-data">
-                                    <div class="profilepic">
-                                        <div class="profile_img">
-                                            <div class="image">
-                                                <!-- User Profile Image -->
-                                                <img src="{% static 'images/person.png' %}" alt="img8">
+                    {% for comment in comments %}
+                        <div class="comments">
+                            <div class="top">
+                                <div class="userDetails">
+                                    <div class="comment-data">
+                                        <div class="profilepic">
+                                            <div class="profile_img">
+                                                <div class="image">
+                                                    <img src="{% static 'images/person.png' %}" alt="img8">
+                                                </div>
                                             </div>
                                         </div>
+                                        <p>
+                                            <a href="">Test Name</a>
+                                            {{ comment.text }}
+                                        </p>
                                     </div>
-                                    <p>
-                                        <!-- Link to User Profile Details Page-->
-                                        <!-- User First and/or Last Name or username-->
-                                        <a href="">Steven Ivanov</a>
-                                        <!-- User Comment -->
-                                        - OMG where can i get one
-                                    </p>
+                                    <span>{{ comment.date_time_of_publication }}</span>
                                 </div>
-                                <span>Sept. 20, 2022, 5:02 p.m.</span>
                             </div>
                         </div>
-                    </div>
+                    {% endfor %}
                     <!-- End Comments Section -->
                 </div>
 

@@ -7,5 +7,5 @@ urlpatterns = [
         path('', details_pest, name="details_pest"),
         path('edit/', edit_pest, name="edit_pest"),
         path('delete/', delete_pest, name="delete_pest"),
-    ]))
+    ])),
 ]

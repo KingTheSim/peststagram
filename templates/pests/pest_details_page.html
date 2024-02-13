@@ -10,26 +10,26 @@
                 <div class="profile_img">
                     <div class="image">
                         <!-- Pest URL Image -->
-                        <img src="https://encrypted-tbn0.gstatic.com/static/images?q=tbn:ANd9GcTgoIHq82qLYnvomfz5ZkW5CLQ8VNxCyI-hUw&usqp=CAU"
+                        <img src="{{ pest.photo }}"
                              alt="img8">
                     </div>
                 </div>
                 <div class="personal">
                     <div class="edit">
                         <!-- Pest Name -->
-                        <p>Sasho</p>
+                        <p>{{ pest.name }}</p>
                         <!-- Pest Edit Button -->
-                        <a href="">
+                        <a href="{% url 'edit_pest' 'username' pest.slug %}">
                             <img class="edit-img" src="{% static 'images/edit-pen-icon-6.jpg' %}" alt="edit button">
                         </a>
                         <!-- Pest Delete Button -->
-                        <a href="">
+                        <a href="{% url 'delete_pest' 'username' pest.slug %}">
                             <img class="bin-img" src="{% static 'images/icon-remove-22.jpg' %}" alt="bin button">
                         </a>
                     </div>
                     <div class="data">
                         <!-- Pest Total Photos -->
-                        <span>4</span>
+                        <span>{{ all_photos.count }}</span>
                         <p>photos</p>
                     </div>
                 </div>
@@ -38,13 +38,13 @@
         <!-- End Pest Personal Data Section -->
 
         <div class="pest-posts">
-            
-            {% include "common/pest_photos.html" %}
+            {% if all_photos %}
+                {% include "common/pest_photos.html" %}
             <!-- IF Photos End Pest Photos Post Section -->
-
+            {% else %}
             <!-- IF NOT Photos Show No Post Image -->
-            <img class="no-posts" src="{% static 'images/no_posts.png' %}" alt="no posts image">
-
+                <img class="no-posts" src="{% static 'images/no_posts.png' %}" alt="no posts image">
+            {% endif %}
         </div>
     </div>
 {% endblock %}
