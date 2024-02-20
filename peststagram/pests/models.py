@@ -8,7 +8,7 @@ class Pest(models.Model):
     name = models.CharField(max_length=MAX_NAME_LENGTH)
     photo = models.URLField()
     description = models.TextField()
-    date_of_sight = models.DateField(blank=True, null=True)
+    date_of_sight = models.DateField()
     slug = models.SlugField(unique=True, null=False, blank=True, editable=False)
 
     def save(self, *args, **kwargs) -> None:

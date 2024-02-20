@@ -9,7 +9,7 @@ class PestBaseForm(forms.ModelForm):
         fields = ["name", "date_of_sight", "photo"]
         widgets = {
             "name": forms.TextInput(attrs={"placeholder": "Pest name"}),
-            "date_of_sight": forms.DateTimeInput(attrs={"type": "datetime-local"}),
+            "date_of_sight": forms.DateTimeInput(attrs={"type": "date"}),
             "photo": forms.TextInput(attrs={"placeholder": "Link to image"}),
         }
         labels = {

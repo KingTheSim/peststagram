@@ -1,7 +1,7 @@
 {% load static %}
 
 
-    {% for photo in all_photos %}
+    {% for photo in page_obj %}
         <div class="card">
         <p>
         {% if photo.location %}

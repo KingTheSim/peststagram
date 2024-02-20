@@ -1,11 +1,11 @@
-from django.urls import path,include
-from peststagram.pests.views import add_pest, details_pest, edit_pest, delete_pest
+from django.urls import path, include
+from peststagram.pests.views import AddPestView, DetailsPestView, EditPestView, DeletePestView
 
 urlpatterns = [
-    path('add/', add_pest, name="add_pest"),
-    path('<str:username>/pest/<slug:pest_slug>/', include([
-        path('', details_pest, name="details_pest"),
-        path('edit/', edit_pest, name="edit_pest"),
-        path('delete/', delete_pest, name="delete_pest"),
+    path('add/', AddPestView.as_view(), name="add_pest"),
+    path('<str:username>/pest/<slug:slug>/', include([
+        path('', DetailsPestView.as_view(), name="details_pest"),
+        path('edit/', EditPestView.as_view(), name="edit_pest"),
+        path('delete/', DeletePestView.as_view(), name="delete_pest"),
     ])),
 ]
